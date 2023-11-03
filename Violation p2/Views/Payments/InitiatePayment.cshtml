@@ -1,0 +1,57 @@
+﻿@model PaymentViewModel
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a asp-action="Index">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Payment  <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread">Pay for Violation </h1>
+            </div>
+        </div>
+    </div>
+</section>
+@* <h2>Pay for Violation</h2> *@
+<style>
+    body{
+        margin-bottom:10% ;
+    }
+</style>
+
+<p>Total Amount: @((decimal)Model.Amount / 100) <!-- Convert paise to rupees --></p>
+
+<input type="hidden" id="violationId" value="@Model.ViolationId" />
+
+<!-- Add input for phone number -->
+<div>
+    <label for="phoneNumber">Phone Number (Indian numbers only):</label>
+    <input type="text" id="phoneNumber" name="phoneNumber" placeholder="E.g., 9123456789" required />
+</div>
+ 
+<!-- Razorpay Payment Button -->
+<button id="rzp-button1">Pay with Razorpay</button>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    var options = {
+        "key": "rzp_test_5kc2DH3nHu1lt2",
+        "amount": "@Model.Amount",
+        "currency": "@Model.Currency",
+        "name": "Violation Payment",
+        "description": "Payment for Violation",
+        "prefill": {
+            "contact": document.getElementById("phoneNumber").value // Prefilling the contact number
+        },
+        "handler": function (response) {
+            var paymentId = response.razorpay_payment_id;
+            var violationId = document.getElementById("violationId").value;
+
+            location.href = '/Payments/CompletePayment?razorpayPaymentId=' + paymentId + '&violationId=' + violationId;
+        }
+    };
+
+    var rzp1 = new Razorpay(options);
+    document.getElementById('rzp-button1').onclick = function (e) {
+        rzp1.open();
+        e.preventDefault();
+    }
+</script>

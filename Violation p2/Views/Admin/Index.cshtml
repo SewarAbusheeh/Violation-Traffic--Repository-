@@ -1,0 +1,163 @@
+﻿@model Violation_p2.Models.User1
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<style>
+    #bodych{
+        margin-left:0% ;
+    }
+</style>
+
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container" >
+
+
+            <!-- top navigation -->
+            <div class="top_nav" >
+                <div class="nav_menu">
+                    <nav>
+                        @*    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        *@
+                      
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" id="bodych" role="main">
+                <div class="">
+                    <div class="page-title">
+                        <div class="title_left">
+                            <h3>Admin Profile</h3>
+                        </div>
+
+                        <div class="title_right">
+                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                <form class="search-form" asp-action="SearchUser" method="post">
+                                <div class="input-group">
+                                     
+                                    <input name="query" type="text" class="form-control" placeholder="Search for User">
+                                    <span class="input-group-btn">
+                                     @*    <button class="btn btn-default" type="button">Go!</button> *@
+                                            <input type="submit" value="Go!" class="btn btn-default" />
+                                    </span>
+                          
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="row" >
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Admin Report <small></small></h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li>
+                                                    <a href="#">Settings 1</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Settings 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                                        <div class="profile_img">
+                                            <div id="crop-avatar">
+                                                <!-- Current avatar -->
+                                                <img class="img-responsive avatar-view" src="@Url.Content("~/ImagesTodisplay/"+Model.Imagepath)" alt="Avatar" title="Change the avatar">
+                                            </div>
+                                        </div>
+                                        <h3></h3>
+
+                                        <ul class="list-unstyled user_data">
+                                            <li>
+                                                <i class="fa fa-map-marker user-profile-icon"></i>Email: @Model.Email
+                                            </li>
+
+                                            <li>
+                                                <i class="fa fa-briefcase user-profile-icon"></i> Role:Admin
+                                            </li>
+
+                                            <li class="m-top-xs">
+                                                <i class="fa fa-external-link user-profile-icon"></i>Websit:
+                                                <a>www.Admin.com</a>
+                                            </li>
+                                        </ul>
+
+                                        <a class="btn btn-success" asp-action="Edit" asp-controller="Admin" asp-route-id="@Model.User1Id"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                                        <br />
+
+                                        <!-- start skills -->
+                                        <h4>Skills</h4>
+                                        <ul class="list-unstyled user_data">
+                                            <li>
+                                                <p>Web Applications</p>
+                                                <div class="progress progress_sm">
+                                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>Website Design</p>
+                                                <div class="progress progress_sm">
+                                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>Automation & Testing</p>
+                                                <div class="progress progress_sm">
+                                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <p>UI / UX</p>
+                                                <div class="progress progress_sm">
+                                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <!-- end of skills -->
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /page content -->
+            <!-- footer content -->
+            <!-- /footer content -->
+        </div>
+    </div>
+
+
+
+</body>
+

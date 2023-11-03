@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Violation_p2.Models.Violation>
+
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Violationdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fineamount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ispaid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vehicle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Violationtype)
+            </th>
+           
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Violationdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fineamount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ispaid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehicle.VehicleId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Violationtype.Description)
+            </td>
+     
+        </tr>
+}
+    </tbody>
+</table> 

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Violation_p2.Models.Testimonial>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Isapproved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Isapproved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.User1Id)
+            </td>
+            <td>
+                @* <a asp-action="Edit" asp-route-id="@item.TestimonialId">Edit</a> | *@
+                    <a asp-action="Confirm_Testimonial" asp-controller="Home" asp-route-id="@item.TestimonialId">Accept</a> |
+                <a asp-action="Delete" asp-route-id="@item.TestimonialId">Reject</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

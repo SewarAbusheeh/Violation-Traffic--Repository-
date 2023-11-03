@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Payment Completion";
+}
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a asp-action="Index">Home <i class="ion-ios-arrow-forward"></i></a></span> <span> Payment Completed <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread"></h1>     <h1 class="mb-3 bread">    </h1>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h3>Payment Completed</h3>
+                </div>
+                <div class="card-body">
+                    <p class="lead">Your payment has been successfully processed. Thank you for paying the violation fine.</p>
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Return to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

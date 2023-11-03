@@ -1,0 +1,482 @@
+﻿@model CustomViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@* style="background-image: url('~/images/bg_1.jpg');" data-stellar-background-ratio="0.5" *@
+
+<style>
+    #imgbg {
+        width: 100%;
+        background-position: inherit;
+        background-size: cover;
+        height: 100%;
+        /*  width:max-content ; */
+    }
+
+</style>
+<body>
+    @*   <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+    <div class="carousel-item active" id="imgbg">
+    <img style="background-size:cover; width=max-content;" class="d-block w-100" src="~/images/bg_1.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+    <img class="d-block w-100" src="~/images/bg_2.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+    <img class="d-block w-100" src="~/images/bg_3.jpg" alt="Third slide">
+    </div>
+    </div>
+    </div> *@
+
+    <!-- END nav -->
+    <section>
+        @foreach (var item in Model.DataFromTable1)
+        {
+
+            <div class="hero-wrap ftco-degree-bg" id="imgbg" style="background-image: url('@Url.Content("/ImagesTodisplay/"+@item.Imagepath)')" ; data-stellar-background-ratio="0.5">
+                @*  <img id="imgbg" src="@Url.Content("~/ImagesTodisplay/"+item.Imagepath) " /> *@
+                @*      style="background-image: url('@Url.Content("/ImagesTodisplay/"+@item.Imagepath)'); *@
+                <div class="overlay"></div>
+                <div class="container">
+
+                    <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
+
+                        <div class="col-lg-8 ftco-animate">
+                            <div class="text w-100 text-center mb-md-5 pb-md-5">
+                                @*   <h1 class="mb-4">Fast &amp; Easy Way To Track A Car</h1> *@
+                                <h1 class="mb-4">@item.Caption1</h1>
+                                <p style="font-size: 18px;">@item.Caption2</p>
+                                @*   <a href="https://vimeo.com/45830194" class="icon-wrap popup-vimeo d-flex align-items-center mt-4 justify-content-center">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="ion-ios-play"></span>
+                            </div>
+                            <div class="heading-title ml-5">
+                            <span>Easy steps for renting a car</span>
+                            </div>
+                            </a> *@
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </section>
+
+    <section class="ftco-section ftco-no-pt bg-light">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-md-12	featured-top">
+                    <div class="row no-gutters">
+                        <div class="col-md-4 d-flex align-items-center">
+                            <form method="post" enctype="multipart/form-data" class="request-form ftco-animate bg-primary">
+                                <h2>Add Your Car</h2>
+                                @if (!string.IsNullOrEmpty(ViewBag.Error1))
+                                {
+                                    <div class="alert alert-danger">
+                                        @ViewBag.Error1
+                                    </div>
+                                }
+                                @ViewBag.Error1
+
+                                <div class="form-group">
+                                    <label for="Licenseplate" class="label">License plate</label>
+                                    <input for="Licenseplate" name="Licenseplate" type="text" class="form-control" placeholder="Licenseplate">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ImageFile" class="label">Image</label>
+                                    <input for="ImageFile" name="ImageFile" type="file" class="form-control" placeholder="Image">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="Licenseexpirydate" class="label">Licenseexpirydate</label>
+                                    <input for="Licenseexpirydate" name="Licenseexpirydate" type="date" class="form-control" placeholder="Licenseexpirydate">
+
+                                </div>
+                                <div class="d-flex">
+                                    <div class="form-group mr-2">
+                                        <label for="Model" class="label">Model</label>
+                                        <input for="Model" name="Model" type="text" class="form-control" placeholder="Model">
+                                    </div>
+                                    <div class="form-group mr-2">
+                                        <label for="Type" class="label">Type</label>
+                                        <input for="Type" name="Type" type="text" class="form-control" placeholder="Type">
+                                    </div>
+                                    <div class="form-group ml-2">
+                                        <label for="Color" class="label">Color</label>
+                                        <input for="Color" name="Color" type="text" class="form-control" placeholder="Color">
+                                    </div>
+                                </div>
+                                @*    <div class="form-group">
+                                <label for="" class="label">Pick-up time</label>
+                                <input type="text" class="form-control" id="time_pick" placeholder="Time">
+                                </div> *@
+                                <div class="form-group">
+                                    <input asp-action="AddUserCar" asp-controller="Home" type="submit" value="Add Car" class="btn btn-secondary py-3 px-4">
+                                </div>
+                            </form>
+                          
+                        </div>
+                        <div class="col-md-8 d-flex align-items-center">
+                            <div class="services-wrap rounded-right w-100">
+                                <h3 class="heading-section mb-4">Better Way to Searh Your Cars </h3>
+                                <div class="row d-flex mb-4">
+                                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                                        <div class="services w-100 text-center">
+                                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+                                            <div class="text w-100">
+                                                <h3 class="heading mb-2">Choose Your way </h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                                        <div class="services w-100 text-center">
+                                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-handshake"></span></div>
+                                            <div class="text w-100">
+                                                <h3 class="heading mb-2">Select the Best Deal</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                                        <div class="services w-100 text-center">
+                                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
+                                            <div class="text w-100">
+                                                <h3 class="heading mb-2">Pay while doning </h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Search Box Container -->
+                                <div id="search-box-container">
+                                    <div class="search-box">
+                                        @*  <button class="close-search">
+                                        <span class="fa fa-close"></span>
+                                        </button> *@
+                                        <form class="search-form" asp-action="Search" method="post">
+                                            <input type="search" name="query" placeholder="Type a name or model " autofocus>
+                                            @*  <button type="submit" class="search-btn">
+                                            <span class="fa fa-search"></span>
+                                            </button> *@
+                                            @*  <p><a  class="btn btn-primary py-3 px-4">Search</a></p> *@
+                                            <input type="submit" value="Search" class="btn btn-primary py-3 px-4" />
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Start search box -->
+    <!-- Full-screen search container -->
+    <!-- End search box -->
+
+    <section class="ftco-section ftco-no-pt bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+                    <span class="subheading">What we offer</span>
+                    <h2 class="mb-2">Feeatured Vehicles</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="carousel-car owl-carousel">
+                        @foreach (var item in Model.DataFromTable2)
+                        {
+                            <div class="item">
+                                <div class="car-wrap rounded ftco-animate">
+                                    <div class="img rounded d-flex align-items-end" style="background-image: url('@Url.Content("/ImagesTodisplay/"+@item.Imagepath)')">
+                                    </div>
+                                    <div class="text">
+                                        <h2 class="mb-0"><a>@item.Model</a></h2>
+                                        <div class="d-flex mb-3">
+                                            <span class="cat">@item.Type</span>
+                                            <p class="price ml-auto">@item.Licenseplate <span>@item.Color</span></p>
+                                        </div>
+                                        <p class="d-flex mb-0 d-block">@* <a  class="btn btn-primary py-2 mr-1">Book now </a>*@ <a asp-route-id="@item.VehicleId" asp-action="DetailsCarUser" class="btn btn-secondary py-3 ml-1">Details</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section class="ftco-section ftco-about">
+        <div class="container">
+            @foreach (var item in Model.DataFromTable3)
+            {
+                <div class="row no-gutters">
+                    <div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url('@Url.Content("/ImagesTodisplay/"+@item.Imagepath)');">
+                    </div>
+                    <div class="col-md-6 wrap-about ftco-animate">
+                        <div class="heading-section heading-section-white pl-md-5">
+                            <span class="subheading">About us</span>
+                            <h2 class="mb-4">@item.Title</h2>
+
+                            <p>@item.Pargraph</p>
+                            <p>@item.Content</p>
+                            <p><a class="btn btn-primary py-3 px-4">Search Vehicle</a></p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <span class="subheading">Services</span>
+                    <h2 class="mb-3">Our Latest Services</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="services services-2 w-100 text-center">
+                        <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-wedding-car"></span></div>
+                        <div class="text w-100">
+                            <h3 class="heading mb-2">Display all violations on the car</h3>
+                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="services services-2 w-100 text-center">
+                        <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
+                        <div class="text w-100">
+                            <h3 class="heading mb-2">Pay the violation</h3>
+                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="services services-2 w-100 text-center">
+                        <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car"></span></div>
+                        <div class="text w-100">
+                            <h3 class="heading mb-2">Add car information</h3>
+                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="services services-2 w-100 text-center">
+                        <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
+                        <div class="text w-100">
+                            <h3 class="heading mb-2">receives a notification with the License Date</h3>
+                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section ftco-intro" style="background-image: url('/images/bg_3.jpg'); width:100%;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-6 heading-section heading-section-white ftco-animate">
+                    <h2 class="mb-3">Do You Want To receives a notification with the License Date? So Don't Be Late.</h2>
+                    <a href="#" class="btn btn-primary btn-lg">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="ftco-section testimony-section bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <span class="subheading">Testimonial</span>
+                    <h2 class="mb-3">Happy Clients</h2>
+                </div>
+            </div>
+            <div class="row ftco-animate">
+                <div class="col-md-12">
+
+                    <div class="carousel-testimony owl-carousel ftco-owl">
+                        @foreach (var item in Model.DataFromTable5)
+                        {
+                            <div class="item">
+                                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                                    <div class="user-img mb-2" style="background-image: url('/images/person_1.jpg')">
+                                    </div>
+                                    <div class="text pt-4">
+                                        <p class="mb-4">@item.Content</p>
+                                        @*  <p class="name">@item.User.Email</p> *@
+                                        <span class="position">@item.Subject</span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        @*   <div class="item">
+                        <div class="testimony-wrap rounded text-center py-4 pb-5">
+                        <div class="user-img mb-2" style="background-image: url(images/person_2.jpg)">
+                        </div>
+                        <div class="text pt-4">
+                        <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <p class="name">Roger Scott</p>
+                        <span class="position">Interface Designer</span>
+                        </div>
+                        </div>
+                        </div>
+                        <div class="item">
+                        <div class="testimony-wrap rounded text-center py-4 pb-5">
+                        <div class="user-img mb-2" style="background-image: url(images/person_3.jpg)">
+                        </div>
+                        <div class="text pt-4">
+                        <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <p class="name">Roger Scott</p>
+                        <span class="position">UI Designer</span>
+                        </div>
+                        </div>
+                        </div>
+                        <div class="item">
+                        <div class="testimony-wrap rounded text-center py-4 pb-5">
+                        <div class="user-img mb-2" style="background-image: url(images/person_1.jpg)">
+                        </div>
+                        <div class="text pt-4">
+                        <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <p class="name">Roger Scott</p>
+                        <span class="position">Web Developer</span>
+                        </div>
+                        </div>
+                        </div>
+                        <div class="item">
+                        <div class="testimony-wrap rounded text-center py-4 pb-5">
+                        <div class="user-img mb-2" style="background-image: url(images/person_1.jpg)">
+                        </div>
+                        <div class="text pt-4">
+                        <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <p class="name">Roger Scott</p>
+                        <span class="position">System Analyst</span>
+                        </div>
+                        </div>
+                        </div> *@
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <span class="subheading">Blog</span>
+                    <h2>Recent Blog</h2>
+                </div>
+            </div>
+            <div class="row d-flex">
+                @foreach (var item in Model.DataFromTable4)
+                {
+                    <div class="col-md-4 d-flex ftco-animate">
+                        <div class="blog-entry justify-content-end">
+                            <a href="blog-single.html" class="block-20" style="background-image: url('@Url.Content("/ImagesTodisplay/"+@item.Imagepath)')">
+                            </a>
+                            <div class="text pt-4">
+                                <div class="meta mb-3">
+                                    <div><a>@item.PublishDate</a></div>
+                                    @*            <div><a >@item.User.Username</a></div> *@
+                                    <div><a class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                </div>
+                                <h3 class="heading mt-2"><a href="#">@item.Title</a></h3>
+                                <p><a asp-route-id="@item.BlogId" class="btn btn-primary">Read more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @*     <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry justify-content-end">
+                <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+                </a>
+                <div class="text pt-4">
+                <div class="meta mb-3">
+                <div><a href="#">Oct. 29, 2019</a></div>
+                <div><a href="#">Admin</a></div>
+                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                </div>
+                <h3 class="heading mt-2"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <p><a href="#" class="btn btn-primary">Read more</a></p>
+                </div>
+                </div>
+                </div>
+                <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry">
+                <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+                </a>
+                <div class="text pt-4">
+                <div class="meta mb-3">
+                <div><a href="#">Oct. 29, 2019</a></div>
+                <div><a href="#">Admin</a></div>
+                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                </div>
+                <h3 class="heading mt-2"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <p><a href="#" class="btn btn-primary">Read more</a></p>
+                </div>
+                </div>
+                </div> *@
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-counter ftco-section img bg-light" id="section-counter">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18">
+                        <div class="text text-border d-flex align-items-center">
+                            <strong class="number" data-number="10">0</strong>
+                            <span>Year <br>Experienced</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18">
+                        <div class="text text-border d-flex align-items-center">
+                            <strong class="number" data-number="@Model.CountCars">0</strong>
+                            <span>Total <br>Cars</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18">
+                        <div class="text text-border d-flex align-items-center">
+                            <strong class="number" data-number="@Model.CountViolations">0</strong>
+                            <span>Total <br>Violation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                    <div class="block-18">
+                        <div class="text d-flex align-items-center">
+                            <strong class="number" data-number="@Model.CountUsers">0</strong>
+                            <span>Total <br>Customers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

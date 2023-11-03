@@ -1,0 +1,52 @@
+﻿@model Violation_p2.Models.Violation
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Violation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Violationdate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Violationdate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fineamount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Fineamount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ispaid)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ispaid)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.VehicleId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Violationtype)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Violationtype.ViolationtypeId)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ViolationId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
