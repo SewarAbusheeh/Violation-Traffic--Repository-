@@ -1,0 +1,148 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\hp\\source\\Tahalef Projects\\Violation p2\\Violation p2\\Violation p2.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\hp\\source\\Tahalef Projects\\Violation p2\\Violation p2\\Violation p2.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\hp\\source\\Tahalef Projects\\Violation p2\\Violation p2\\Violation p2.csproj",
+        "projectName": "Violation p2",
+        "projectPath": "C:\\Users\\hp\\source\\Tahalef Projects\\Violation p2\\Violation p2\\Violation p2.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\source\\Tahalef Projects\\Violation p2\\Violation p2\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "DinkToPdf": {
+              "target": "Package",
+              "version": "[1.0.8, )"
+            },
+            "Haukcode.WkHtmlToPdfDotNet": {
+              "target": "Package",
+              "version": "[1.5.86, )"
+            },
+            "HtmlToPdfConverter.Core": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[6.0.23, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.16, )"
+            },
+            "ODP.NetCore": {
+              "target": "Package",
+              "version": "[2.0.12, )"
+            },
+            "Oracle.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.21.12, )"
+            },
+            "PdfSharpCore": {
+              "target": "Package",
+              "version": "[1.3.62, )"
+            },
+            "Polybioz.HtmlRenderer.PdfSharp.Core": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "PuppeteerSharp": {
+              "target": "Package",
+              "version": "[6.2.0, )"
+            },
+            "Razorpay": {
+              "target": "Package",
+              "version": "[3.0.2, )"
+            },
+            "jsreport.AspNetCore": {
+              "target": "Package",
+              "version": "[3.8.0, )"
+            },
+            "jsreport.Local": {
+              "target": "Package",
+              "version": "[3.8.1, )"
+            },
+            "s.jsreport.AspNetCore": {
+              "target": "Package",
+              "version": "[2.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
