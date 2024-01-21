@@ -264,7 +264,7 @@ namespace Violation_p2.Controllers
             if (isExpiringSoon == true)
             {
                 var mail = new MailMessage();
-                var Loginfo = new NetworkCredential("sewarabusheeh@gmail.com", "lkkwzsvegzkffbxz ");
+                var Loginfo = new NetworkCredential();
 
 
                 //        // مين هو المرسل 
