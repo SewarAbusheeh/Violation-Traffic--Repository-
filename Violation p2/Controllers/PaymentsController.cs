@@ -108,7 +108,7 @@ namespace Violation_p2.Controllers
 
                     using (var smtpClient = new SmtpClient("smtp.gmail.com", 587))
                     {
-                        smtpClient.Credentials = new NetworkCredential("sewarabusheeh@gmail.com", "lkkwzsvegzkffbxz ");
+                        smtpClient.Credentials = new NetworkCredential();
                         smtpClient.EnableSsl = true;
 
                         try

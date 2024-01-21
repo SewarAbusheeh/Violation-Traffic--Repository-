@@ -213,7 +213,7 @@ namespace Violation_p2.Controllers
                 //        //  معطيات تسجيل الدخول بغرض ارسال الرسائل من خلاله يت تحويل الرسائل  
                 //        // نتورك كردنشل ينتظر الايميل والباسورد
                 //        //   الايميل الذي سوف نرسل من خلاله اللي رح اقوم بالارسال من خلاله 
-                var Loginfo = new NetworkCredential("sewarabusheeh@gmail.com", "lkkwzsvegzkffbxz ");
+                var Loginfo = new NetworkCredential();
 
 
                 //        // مين هو المرسل 
